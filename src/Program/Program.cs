@@ -7,10 +7,12 @@
 using System;
 using System.Collections;
 using System.Linq;
+using System.Text.Json;
+using System.Text.Json.Serialization;
 
 namespace Recipies
 {
-    public class Program
+    public class Program 
     {
         private static ArrayList productCatalog = new ArrayList();
 
@@ -21,8 +23,8 @@ namespace Recipies
             PopulateCatalogs();
 
             Recipe recipe = new Recipe();
-            recipe.FinalProduct = GetProduct("Café con leche");
-            recipe.AddStep(new Step(GetProduct("Café"), 100, GetEquipment("Cafetera"), 120));
+            recipe.FinalProduct = GetProduct("Cafe con leche");
+            recipe.AddStep(new Step(GetProduct("Cafe"), 100, GetEquipment("Cafetera"), 120));
             recipe.AddStep(new Step(GetProduct("Leche"), 200, GetEquipment("Hervidor"), 60));
 
             Console.WriteLine(recipe.ConvertToJson());
@@ -30,9 +32,9 @@ namespace Recipies
 
         private static void PopulateCatalogs()
         {
-            AddProductToCatalog("Café", 100);
+            AddProductToCatalog("Cafe", 100);
             AddProductToCatalog("Leche", 200);
-            AddProductToCatalog("Café con leche", 300);
+            AddProductToCatalog("Cafe con leche", 300);
 
             AddEquipmentToCatalog("Cafetera", 1000);
             AddEquipmentToCatalog("Hervidor", 2000);

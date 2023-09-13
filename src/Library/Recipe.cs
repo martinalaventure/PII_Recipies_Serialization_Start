@@ -29,5 +29,9 @@ namespace Recipies
         {
             this.Steps.Remove(step);
         }
+        public string ConvertToJson()
+        {
+            return JsonSerializer.Serialize(this);
+        }
     }
 }
